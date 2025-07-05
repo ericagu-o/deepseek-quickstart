@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepSeek - 深度求索人工智能</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-color: #1f2937;
+            --light-text: #6b7280;
+            --bg-color: #f9fafb;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 36px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .cta-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.33s;
+        }
+        
+        .ct }
+a-button:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: var(--light-text);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .features {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--light-text);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--bg-color);
+            border-radius: 12px;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card p {
+            color: var(--light-text);
+        }
+        
+        .demo-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .demo-container {
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .demo-placeholder {
+            background-color: #f3f4f6;
+            border-radius: 8px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+            color: var(--light-text);
+        }
+        
+        footer {
+            background-color: #1f2937;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #e5e7eb;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column ul li a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="https://deepseek.com/logo.svg" alt="DeepSeek Logo">
+                    <span class="logo-text">DeepSeek</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#features">产品</a>
+                    <a href="#demo">演示</a>
+                    <a href="#pricing">定价</a>
+                    <a href="#docs">文档</a>
+                    <a href="#blog">博客</a>
+                </div>
+                <a href="#signup" class="cta-button">开始使用</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>探索人工智能的无限可能</h1>
+                <p>DeepSeek 提供最先进的 AI 模型和工具，帮助您解决复杂问题，释放创造力，提升工作效率。</p>
+                <div>
+                    <a href="#signup" class="cta-button" style="margin-right: 15px;">免费试用</a>
+                    <a href="#demo" style="color: var(--primary-color); font-weight: 600;">查看演示 →</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="features" id="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>为什么选择 DeepSeek</h2>
+                    <p>我们提供业界领先的人工智能解决方案，满足您的各种需求</p>
+                </div>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>高性能模型</h3>
+                        <p>我们的 AI 模型经过优化，提供快速准确的响应，处理复杂任务游刃有余。</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h3>安全可靠</h3>
+                        <p>严格的数据隐私保护措施，确保您的信息安全，符合行业最高标准。</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🔄</div>
+                        <h3>持续更新</h3>
+                        <p>我们的模型和功能不断迭代更新，始终保持技术领先地位。</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🌐</div>
+                        <h3>多语言支持</h3>
+                        <p>支持多种语言处理，打破语言障碍，实现全球沟通无障碍。</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🧠</div>
+                        <h3>知识丰富</h3>
+                        <p>基于海量知识库训练，能够回答各种专业领域的问题。</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🛠️</div>
+                        <h3>开发者友好</h3>
+                        <p>提供完善的 API 和文档，方便开发者快速集成到各种应用中。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="demo-section" id="demo">
+            <div class="container">
+                <div class="section-title">
+                    <h2>体验 DeepSeek 的强大能力</h2>
+                    <p>立即尝试我们的 AI 模型，感受人工智能的魅力</p>
+                </div>
+                
+                <div class="demo-container">
+                    <h3>DeepSeek 聊天演示</h3>
+                    <div class="demo-placeholder">
+                        [这里是交互式聊天演示界面]
+                    </div>
+                    <a href="#signup" class="cta-button">免费注册体验</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>产品</h3>
+                    <ul>
+                        <li><a href="#">DeepSeek Chat</a></li>
+                        <li><a href="#">DeepSeek API</a></li>
+                        <li><a href="#">企业解决方案</a></li>
+                        <li><a href="#">定价</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>资源</h3>
+                    <ul>
+                        <li><a href="#">文档</a></li>
+                        <li><a href="#">博客</a></li>
+                        <li><a href="#">社区</a></li>
+                        <li><a href="#">GitHub</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>公司</h3>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">联系我们</a></li>
+                        <li><a href="#">新闻</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>法律</h3>
+                    <ul>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                        <li><a href="#">使用政策</a></li>
+                        <li><a href="#">Cookie 政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2023 DeepSeek. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
